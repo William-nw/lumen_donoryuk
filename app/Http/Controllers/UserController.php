@@ -16,7 +16,7 @@ class UserController extends Controller
         ])->first();
 
         
-        if($insert != null){
+        if($auth != null){
             return response()->json(['status' => 'success', 'data' => $auth],200);
         }else{
             return response()->json(['status' => 'fail', 'data' => $auth],404);
