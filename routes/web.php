@@ -13,11 +13,18 @@
 |
 */
 
+// $router->get('/', function () use ($router) {
+//     return $router->app->version();
+// });
+use Illuminate\Support\Str;
 $router->get('/', function () use ($router) {
-    return $router->app->version();
+    return Str::random(32);
 });
 
 
-$router->post('/user','UserController@_getUser');
-$router->post('/insert-user','UserController@_insertUser');
-$router->post('/update-user','UserController@_updateUser');
+$router->group(['prefix' => env('ROUTE_KEY')], function() use ($router) {
+    $router->post('/user','UserController@_getUser');
+    $router->post('/insert-user','UserController@_insertUser');
+    $router->post('/update-user','UserController@_updateUser');
+});
+
