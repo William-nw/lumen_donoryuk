@@ -17,12 +17,15 @@
 //     return $router->app->version();
 // });
 use Illuminate\Support\Str;
+
 $router->get('/', function () use ($router) {
-    return Str::random(32);
+    // return Str::random(32);
+    return('API Donor Yuk');
 });
 
 
 $router->group(['prefix' => env('ROUTE_KEY')], function() use ($router) {
+    $router->get('/fetch-user','UserController@_fetchUser');
     $router->post('/user','UserController@_getUser');
     $router->post('/insert-user','UserController@_insertUser');
     $router->post('/update-user','UserController@_updateUser');

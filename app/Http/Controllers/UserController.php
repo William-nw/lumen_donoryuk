@@ -24,6 +24,17 @@ class UserController extends Controller
 
     }
 
+    public function _fetchUser()
+    {
+        $user = DB::table('user')->select('nama','golongan_darah','rhesus','no_hp','status_donor')->get();
+
+        if($user){
+            return response()->json(['status' => 'success', 'data' => $user],200);
+        }else{
+            return response()->json(['status' => 'fail'],404);
+        }
+    }
+
     public function _insertUser(Request $request)
     {
         try {
