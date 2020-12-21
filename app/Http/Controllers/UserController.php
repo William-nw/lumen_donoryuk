@@ -36,6 +36,7 @@ class UserController extends Controller
                 'rhesus' => $request->rhesus,
                 'lokasi' => $request->lokasi,
                 'no_hp' => $request->no_hp,
+                'status_donor' => $request->status_donor,
                 'created_at' => Carbon::now(),
             ]);
             return response()->json(['status' => 'success'],200);
@@ -59,6 +60,7 @@ class UserController extends Controller
             'rhesus' => $request->rhesus,
             'lokasi' => $request->lokasi,
             'no_hp' => $request->no_hp,
+            'status_donor' => $request->status_donor,
             'updated_at' => Carbon::now(),
         ]);
 
