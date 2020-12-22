@@ -22,6 +22,7 @@ class User extends Migration
             $table->string('rhesus');
             $table->string('lokasi');
             $table->string('no_hp');
+            $table->string('gender');
             $table->string('status_donor');
             $table->timestamps();
         });
