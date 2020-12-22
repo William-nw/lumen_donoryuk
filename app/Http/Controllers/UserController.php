@@ -26,7 +26,7 @@ class UserController extends Controller
 
     public function _fetchUser()
     {
-        $user = DB::table('users')->select('nama','golongan_darah','rhesus','no_hp','status_donor')->get();
+        $user = DB::table('users')->select('nama','golongan_darah','rhesus','no_hp','gender','status_donor')->get();
 
         if($user){
             return response()->json(['status' => 'success', 'data' => $user],200);
@@ -47,6 +47,7 @@ class UserController extends Controller
                 'rhesus' => $request->rhesus,
                 'lokasi' => $request->lokasi,
                 'no_hp' => $request->no_hp,
+                'gender' => $request->gender,
                 'status_donor' => $request->status_donor,
                 'created_at' => Carbon::now(),
             ]);
@@ -71,6 +72,7 @@ class UserController extends Controller
             'rhesus' => $request->rhesus,
             'lokasi' => $request->lokasi,
             'no_hp' => $request->no_hp,
+            'gender' => $request->gender,
             'status_donor' => $request->status_donor,
             'updated_at' => Carbon::now(),
         ]);
